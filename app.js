@@ -16,21 +16,29 @@ const pool = mysql.createPool(dbConfig);
 pool.getConnection(function(err, connection) {
   if (err) throw err; // not connected!
 
-  // Use the connection
-  connection.query('SELECT COUNT(*) as Legionaries FROM users', function(
-    error,
-    results,
-    fields
-  ) {
+  // Use connection
+  //Console.log all users
+  connection.query('SELECT * FROM users', function(error, results, fields) {
     console.log(results);
 
-    // When done with the connection, release it.
-    connection.release();
+    //GET count of all users
+    app.get('/', (req, res) => {
+      connection.query('SELECT COUNT (*) as Legionaries FROM users', function(
+        error,
+        results,
+        fields
+      ) {
+        res.send(results);
 
-    // Handle error after the release.
-    if (error) throw error;
+        connection.release();
 
-    // Don't use the connection here, it has been returned to the pool.
+        if (error) throw error;
+      });
+    });
+
+    // connection.release();
+
+    // if (error) throw error;
   });
 });
 
