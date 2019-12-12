@@ -1,0 +1,28 @@
+{
+  "name": "legionlaunch",
+  "version": "1.0.0",
+  "description": "Site Launch Email Notification Sign Up",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node run app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "ejs",
+    "mysql"
+  ],
+  "author": "Clotia Johari",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "config": "^3.2.4",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "mysql": "^2.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}

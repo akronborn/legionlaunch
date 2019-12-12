@@ -1,0 +1,29 @@
+<head>
+  <link
+    href="https://fonts.googleapis.com/css?family=Gupter&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/app.css" />
+</head>
+
+<body>
+  <div class="flex-container">
+    <div class="container">
+      <h1>JOIN US</h1>
+      <p class="lead">
+        Enter email to be contacted on site launch.
+        <strong><%= count %></strong> Legionaries are ready. Legionbase coming
+        February 2020.
+      </p>
+      <form method="POST" action="/register">
+        <input
+          type="text"
+          class="form"
+          name="email"
+          placeholder="Enter Your Email"
+        />
+        <button>Submit email</button>
+      </form>
+    </div>
+  </div>
+</body>
