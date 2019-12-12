@@ -11,13 +11,17 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 
-let pool = mysql.createPool(dbConfig);
+const pool = mysql.createPool(dbConfig);
 
 pool.getConnection(function(err, connection) {
   if (err) throw err; // not connected!
 
   // Use the connection
-  connection.query('SELECT * FROM users', function(error, results, fields) {
+  connection.query('SELECT COUNT(*) as Legionaries FROM users', function(
+    error,
+    results,
+    fields
+  ) {
     console.log(results);
 
     // When done with the connection, release it.
