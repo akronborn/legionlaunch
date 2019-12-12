@@ -30,6 +30,22 @@ pool.getConnection(function(err, connection) {
       ) {
         res.send(results);
 
+        app.post('/register', (req, res) => {
+          let legionary = {
+            email: req.body.email,
+            target: req.body.target,
+            native: req.body.native,
+            level: req.body.level
+          };
+          connection.query('INSERT INTO users SET ?', legionary, function(
+            error,
+            result
+          ) {
+            if (err) throw err;
+            res.redirect('/');
+          });
+        });
+
         connection.release();
 
         if (error) throw error;
@@ -42,7 +58,7 @@ pool.getConnection(function(err, connection) {
   });
 });
 
-//user_id, email, game, created_at
+//user_id, email, game, created_at, level
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}!`);
