@@ -18,14 +18,36 @@
         <strong><%= count %></strong> Legionaries are ready. TriLegion coming
         February 2020.
       </p>
-      <form method="POST" action="/register">
+      <form method="POST" action="/signup">
         <input
           type="text"
           class="form"
           name="email"
-          placeholder="Enter Your Email"
+          placeholder="Email Address"
         />
-        <button>Submit email</button>
+        <input
+          type="text"
+          class="form"
+          name="target"
+          placeholder="Target Language"
+        />
+        <input
+          type="text"
+          class="form"
+          name="native"
+          placeholder="Native Language"
+        />
+
+        <p>
+          Language Skill Level:
+          <select name="level">
+            <option value="Beginner"></option>
+            <option value="Intermediate"></option>
+            <option value="Advanced"></option>
+          </select>
+        </p>
+
+        <button>Submit information</button>
       </form>
     </div>
   </div>
