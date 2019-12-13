@@ -13,52 +13,25 @@ app.use(express.static(__dirname + '/public'));
 
 const pool = mysql.createPool(dbConfig);
 
-pool.getConnection(function(err, connection) {
-  if (err) throw err; // not connected!
-
-  // Use connection
-  //Console.log all users
-  connection.query('SELECT * FROM users', function(error, results, fields) {
-    console.log(results);
-
-    //GET count of all users
-    app.get('/', (req, res) => {
-      connection.query('SELECT COUNT (*) as Legionaries FROM users', function(
-        error,
-        results,
-        fields
-      ) {
-        res.send(results);
-
-        app.post('/register', (req, res) => {
-          let legionary = {
-            email: req.body.email,
-            target: req.body.target,
-            native: req.body.native,
-            level: req.body.level
-          };
-          connection.query('INSERT INTO users SET ?', legionary, function(
-            error,
-            result
-          ) {
-            if (err) throw err;
-            res.redirect('/');
-          });
-        });
-
-        connection.release();
-
-        if (error) throw error;
-      });
-    });
-
-    // connection.release();
-
-    // if (error) throw error;
-  });
+pool.query('SELECT COUNT (*) as Total FROM users', function(
+  error,
+  results,
+  fields
+) {
+  if (error) throw error;
+  console.log('The number of sign-ups stands at: ', results[0]);
 });
 
-//user_id, email, game, created_at, level
+app.get('/', (req, res) => {
+  pool.query('SELECT target, native, level FROM users', function(
+    error,
+    results,
+    fields
+  ) {
+    if (error) throw error;
+    res.send(results);
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}!`);
