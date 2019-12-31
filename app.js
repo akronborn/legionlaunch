@@ -7,29 +7,53 @@ const dbConfig = config.get('Mysql.dbConfig');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.set('view engine', 'ejs');
+
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public'));
+app.set('view engine', 'ejs');
 
 const pool = mysql.createPool(dbConfig);
 
-pool.query('SELECT COUNT (*) as Total FROM users', function(
-  error,
-  results,
-  fields
-) {
-  if (error) throw error;
-  console.log('The number of sign-ups stands at: ', results[0]);
-});
+// pool.query('SELECT COUNT (*) as Total FROM users', function (
+//   error,
+//   results,
+//   fields
+// ) {
+//   if (error) throw error;
+//   console.log('The number of sign-ups stands at: ', results[0]);
+// });
 
-app.get('/', (req, res) => {
-  pool.query('SELECT target, native, level FROM users', function(
+app.get('/', function (req, res) {
+  pool.query('SELECT COUNT(*) AS count FROM users', function (
     error,
     results,
     fields
   ) {
     if (error) throw error;
-    res.send(results);
+    console.log('The number of sign-ups stands at: ', results[0]);
+    let count = results[0].count;
+    res.render("home", { count: count });
+  });
+
+});
+
+
+
+// try
+app.post('/', (req, res) => {
+  let data = {
+    email: req.body.email,
+    target: req.body.target,
+    native: req.body.native,
+    level: req.body.level
+  };
+
+  let submission = `INSERT INTO users(email, target, native, level) VALUES (?, ?, ?, ?)`;
+
+  pool.query(submission, data, function (err, result) {
+    if (err) throw err;
+    console.log(results);
+
   });
 });
 
