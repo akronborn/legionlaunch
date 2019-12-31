@@ -88,16 +88,19 @@
         February 2020.
       </p>
       <form method="POST" action="/signup">
+        <label for="email" class="labels"></label>br
         <input type="text" class="form" name="email" placeholder="Email Address" required /> <br>
+        <label for="target" class="labels"></label><br>
         <input type="text" class="form" name="target" placeholder="Target Language" required /><br>
+        <label for="native" class="labels"></label><br>
         <input type="text" class="form" name="native" placeholder="Native Language" required /><br>
 
         <p>
-          Language Skill Level:
+          Target Language Skill Level:
           <select name="level">
-            <option value="Beginner"></option>
-            <option value="Intermediate"></option>
-            <option value="Advanced"></option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
           </select>
         </p>
 
