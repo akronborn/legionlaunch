@@ -4,3 +4,6 @@
 /config/default.json
 
 package-lock.json
+
+db.config.js
+/config/db.config.js
