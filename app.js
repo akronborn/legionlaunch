@@ -59,4 +59,4 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}!`);
 });
 
-module.exportts = connection;
+module.exports = connection;
