@@ -1,6 +1,9 @@
 {
   "name": "legionlaunch",
   "version": "1.0.0",
+  "engines": {
+    "node": "13.0.0"
+  }
   "description": "Site Launch Email Notification Sign Up",
   "main": "app.js",
   "scripts": {
