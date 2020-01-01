@@ -3,7 +3,7 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const config = require('config');
 // const dbConfig = config.get('Mysql.dbConfig');
-const dbConfig = require(../config/db.config.js);
+const dbConfig = require('./config/db.config.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
