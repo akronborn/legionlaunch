@@ -27,6 +27,11 @@
 
     }
 
+    span {
+      color: rgb(141, 185, 235);
+      text-decoration: underline;
+    }
+
     h1 {
       margin-top: 40px;
       margin-bottom: 60px;
@@ -34,17 +39,19 @@
       font-family: 'Roboto Slab', serif;
       line-height: 10px;
       color: cornsilk;
+      text-shadow: 2px 2px 4px #c2d2e9;
     }
 
     #h1_div {
       border-style: inset;
       border-width: 20px;
+      box-shadow: 10px 10px;
     }
 
     h2 {
       margin-top: 20px;
       margin-bottom: 20px;
-      font-size: 40px;
+      font-size: 20px;
       font-family: 'Roboto Slab', serif;
       line-height: 10px;
       /* font-weight: 10; */
@@ -145,14 +152,13 @@
     <div>
       <div id="h1_div"></div>
       <h1>
-        Tri-Legion 3 x 3 x 3
+        Tri-Legion 3 x 30 x 3
       </h1>
       <h2>
-        3 study sessions per week x 30 minutes each x
-        3 months
+        <span>3</span> study sessions per week x <span>30</span> minutes each x for <span>3</span> months
       </h2>
       <p class="subheader">
-        <span style="color: rgb(141, 185, 235);  text-decoration: underline;"><strong><%= count %></strong></span>
+        <span><strong><%= count %></strong></span>
         Legionaries are ready. <br>
         Tri-Legion coming
         February 2020. </p>
