@@ -1,0 +1,7 @@
+{
+  "Mysql": {
+    "dbConfig": {
+      "host": "us-cdbr-iron-east-05.cleardb.net"
+    }
+  }
+}
