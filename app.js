@@ -2,7 +2,8 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const config = require('config');
-const dbConfig = config.get('Mysql.dbConfig');
+// const dbConfig = config.get('Mysql.dbConfig');
+const dbConfig = require(../config/db.config.js);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,16 +13,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
-const pool = mysql.createPool(dbConfig);
-
-// pool.query('SELECT COUNT (*) as Total FROM users', function (
-//   error,
-//   results,
-//   fields
-// ) {
-//   if (error) throw error;
-//   console.log('The number of sign-ups stands at: ', results[0]);
-// });
+const pool = mysql.createPool({
+  host: dbConfig.HOST,
+  user: dbConfig.USER,
+  password: dbConfig.PASSWORD,
+  database: dbConfig.DB
+});
 
 app.get('/', function (req, res) {
   pool.query('SELECT COUNT(*) AS count FROM users', function (
@@ -61,3 +58,5 @@ app.post('/signup', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}!`);
 });
+
+module.exportts = connection;
