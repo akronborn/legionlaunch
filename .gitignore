@@ -1,9 +1,7 @@
 /node_modules
 
-/config/db.config.js
-/config/default.json
+config
+
 
 package-lock.json
 
-db.config.js
-/config/db.config.js
