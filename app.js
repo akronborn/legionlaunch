@@ -40,7 +40,7 @@ app.get('/', function (req, res) {
 
 
 // try
-app.post('/', (req, res) => {
+app.post('/signup', (req, res) => {
   let data = {
     email: req.body.email,
     target: req.body.target,
@@ -48,11 +48,12 @@ app.post('/', (req, res) => {
     level: req.body.level
   };
 
-  let submission = `INSERT INTO users(email, target, native, level) VALUES (?, ?, ?, ?)`;
+  // let submission = `INSERT INTO users(email, target, native, level) VALUES (?, ?, ?, ?)`;
 
-  pool.query(submission, data, function (err, result) {
+  pool.query('INSERT INTO users SET ?', data, function (err, result) {
     if (err) throw err;
-    console.log(results);
+    console.log(result);
+    res.redirect('/');
 
   });
 });
