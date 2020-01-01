@@ -12,15 +12,38 @@
       /* font-weight: 100; */
     }
 
+    .subheader {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 40px;
+      color: cornsilk;
+      font-family: 'Roboto Slab', serif;
+    }
+
     .flex-container {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      /* height: 100%; */
+
     }
 
     h1 {
-      margin: 20;
+      margin-top: 40px;
+      margin-bottom: 60px;
+      font-size: 75px;
+      font-family: 'Roboto Slab', serif;
+      line-height: 10px;
+      color: cornsilk;
+    }
+
+    #h1_div {
+      border-style: inset;
+      border-width: 20px;
+    }
+
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 20px;
       font-size: 40px;
       font-family: 'Roboto Slab', serif;
       line-height: 10px;
@@ -29,38 +52,31 @@
     }
 
     p {
-      margin: 0;
       font-size: 40px;
       color: cornsilk;
       font-family: 'Roboto Slab', serif;
     }
 
-    /* .form {
-      line-height: 1.5;
-      border: thin rgb(206, 135, 135);
-      border-bottom: 3px solid #ebebeb;
-      margin-top: 40px;
-      width: 20px;
-      font-size: 2.9em;
-      color: rgb(46, 110, 80);
-      padding: 5px 10px;
-      background: transparent;
-    } */
+    #skilltext {
+      margin-left: 10px;
+      font-size: x-large;
+    }
 
     .form {
-      width: 25%;
+      width: 400px;
       height: 30px;
       margin: 20px;
       text-align: center;
       color: rgb(36, 34, 34);
       font-family: 'Roboto Slab', serif;
+      font-size: 15px;
 
     }
 
     button {
       line-height: 2;
       border: 3px solid white;
-      font-size: 1.9em;
+      font-size: 30px;
       color: rgb(249, 250, 252);
       padding: 5px 30px;
       background: rgb(36, 34, 34);
@@ -87,38 +103,72 @@
     }
 
     #skill {
-      width: 7%;
+      width: 10%;
+      height: 30px;
+      margin: 20px;
+      color: rgb(36, 34, 34);
+      font-family: 'Roboto Slab', serif;
 
+    }
+
+    .labels {
+      color: cornsilk;
+      margin-right: 20%;
+
+    }
+
+    #email_label {
+      margin-right: 26%;
     }
 
     .skills {
       width: 25%;
-      text-align: center;
+      display: block;
+      font-size: 16px;
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      color: #444;
+      line-height: 1.3;
+      padding: .6em 1.4em .5em .8em;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
+      border-radius: .5em;
+      align-items: center;
     }
   </style>
 </head>
 
 <body>
   <div class="flex-container">
-    <div class="container">
+    <div>
+      <div id="h1_div"></div>
       <h1>
-        <bold>3</bold> study sessions per week x <bold>30</bold>minutes each x
-        <bold>3</bold> months
+        Tri-Legion 3 x 3 x 3
       </h1>
-      <p class="lead">
-        Enter email to be contacted on site launch. <br>
-        <strong><%= count %></strong> Legionaries are ready. TriLegion coming
-        February 2020.
+      <h2>
+        3 study sessions per week x 30 minutes each x
+        3 months
+      </h2>
+      <p class="subheader">
+        <span style="color: rgb(141, 185, 235);  text-decoration: underline;"><strong><%= count %></strong></span>
+        Legionaries are ready. <br>
+        Tri-Legion coming
+        February 2020. </p>
+      <br>
+      <p class="subheader">
+        Enter email to be contacted on site launch.
       </p>
       <form method="POST" action="/signup">
-        <label for="email" class="labels"></label><br>
+        <label for="email" class="labels" id="email_label">Email:</label><br>
         <input type="text" class="form" name="email" placeholder="Email Address" required /> <br>
-        <label for="target" class="labels"></label><br>
+        <label for="target" class="labels">Target Language</label><br>
         <input type="text" class="form" name="target" placeholder="Target Language" required /><br>
-        <label for="native" class="labels"></label><br>
+        <label for="native" class="labels">Native Language</label><br>
         <input type="text" class="form" name="native" placeholder="Native Language" required /><br>
 
-        <p>
+        <p id="skilltext">
           Target Language Skill Level:
           <select name="level" id="skill">
             <option value="Beginner" class="skills">Beginner</option>
@@ -126,7 +176,7 @@
             <option value="Advanced" class="skills">Advanced</option>
           </select>
         </p>
-
+        <br>
         <button class="button">Submit</button>
         <button class="button" type="reset">Reset</button>
       </form>
