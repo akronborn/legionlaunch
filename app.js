@@ -42,7 +42,12 @@ app.post('/signup', (req, res) => {
     console.log(result);
     res.redirect('/');
 
+    connection.release();
+
+    if (error) throw error;
+
   });
+
 });
 
 app.listen(PORT, () => {
