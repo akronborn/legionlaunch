@@ -22,8 +22,8 @@ CREATE TABLE `*datbasename**`.`users` (
   {
   "Mysql": {
     "dbConfig": {
-      "host": "host name",
-      "user": "*user title**",
+      "host": "host name (defaut is 'localhost'),
+      "user": "user (default is "root")",
       "password": "*password*",
       "database": "*database name*",
       "port": 3306,
