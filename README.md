@@ -12,7 +12,7 @@ npm run start/npm run dev
 MySQL queries:
 CREATE DATABASE *database name*;
 USE *database name*;
-CREATE TABLE `*datbasename**`.`users` (
+CREATE TABLE `*datbasename*`.`users` (
   `username` VARCHAR(16) NOT NULL,
   `email` VARCHAR(255) NULL,
   `password` VARCHAR(32) NOT NULL,
