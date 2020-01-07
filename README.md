@@ -15,7 +15,7 @@ USE *database name*;
 CREATE TABLE `*datbasename*`.`users` (
   `user_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `target` VARCHAR(25) NOT NULL,
-  `native` VARCHAR(255) NULL,
+  `native` VARCHAR(255) NOT NULL,
   `email` VARCHAR(225) NOT NULL,
   `level` VARCHAR (25) NOT NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP);
