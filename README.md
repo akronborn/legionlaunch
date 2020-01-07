@@ -14,9 +14,9 @@ CREATE DATABASE *database name*;
 USE *database name*;
 CREATE TABLE `*datbasename*`.`users` (
   `user_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `target` VARCHAR(16) NOT NULL,
+  `target` VARCHAR(25) NOT NULL,
   `native` VARCHAR(255) NULL,
-  `email` VARCHAR(32) NOT NULL,
+  `email` VARCHAR(225) NOT NULL,
   `level` VARCHAR (25) NOT NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP);
 
