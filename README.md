@@ -22,7 +22,7 @@ CREATE TABLE `*datbasename**`.`users` (
   {
   "Mysql": {
     "dbConfig": {
-      "host": "host name (defaut is 'localhost'),
+      "host": "host name (defaut is 'localhost')",
       "user": "user (default is "root")",
       "password": "*password*",
       "database": "*database name*",
